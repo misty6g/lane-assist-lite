@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lane-assist-lite"
+version = "0.1.0"
+description = "Classical computer-vision lane detection demo for vehicle-perception portfolios."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Gyan Mistry", email = "gam2437@g.rit.edu" }]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "opencv-python-headless>=4.8,<6",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+lane-assist = "lane_assist.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/misty6g/lane-assist-lite"
+Repository = "https://github.com/misty6g/lane-assist-lite"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["src"]
